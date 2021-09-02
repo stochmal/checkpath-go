@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 	"runtime"
+	"sort"
 	"strings"
 )
 
@@ -21,6 +22,7 @@ func main() {
 	fmt.Println()
 
 	folders := strings.Split(os.Getenv("PATH"), separator)
+	sort.Strings(folders)
 
 	for _, folder := range folders {
 
