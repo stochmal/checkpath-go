@@ -23,7 +23,7 @@ jobs:
           prefix: main
           targets: windows/386,windows/amd64,linux/386,linux/amd64,darwin/386,darwin/amd64
           v: true
-          x: false
+          x: true
           ldflags: -s -w
       - name: Create Release
         uses: actions/create-release@v1.0.0
