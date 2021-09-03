@@ -29,15 +29,15 @@ func main() {
 		exist, _ := exists(folder)
 
 		if !exist {
-			fmt.Println("*** FOLDER NOT FOUND", "\t", folder)
+			fmt.Printf("%-25s %s\n", "*** FOLDER NOT FOUND", folder)
 		} else {
 			files, _ := ioutil.ReadDir(folder)
 
 			if len(files) == 0 {
-				fmt.Println("*** FOLDER IS EMPTY", "\t", folder)
+				fmt.Printf("%-25s %s\n", "*** FOLDER IS EMPTY", folder)
 			} else {
 
-				fmt.Printf("%6d files found\t%s\n", len(files), folder)
+				fmt.Printf("%9d files found %3s %s\n", len(files), "", folder)
 			}
 		}
 	}
