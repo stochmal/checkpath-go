@@ -22,7 +22,7 @@ jobs:
           ls ${{ github.workspace }}
           mkdir src
           cp checkpath.go src
-          printenv
+          printenv | sort
       - name: Build with xgo
         uses: crazy-max/ghaction-xgo@v1
         with:
@@ -39,10 +39,10 @@ jobs:
           GOPATH: ${{ github.workspace }}          
       - name: Upload using GitHub cli
         run: |
-          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
-          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-          sudo apt update
-          sudo apt install gh
+          #curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+          #echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          #sudo apt update
+          #sudo apt install gh
           gh auth login --with-token $env:GITHUB_TOKEN
           gh release upload $(basename "$GITHUB_REF") /build/*
         env:
