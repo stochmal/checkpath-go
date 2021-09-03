@@ -14,6 +14,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Get Info
+        run: |
+          pwd
+          ls -al
+          ls ${{ github.workspace }}
       - name: Build with xgo
         uses: crazy-max/ghaction-xgo@v1
         with:
@@ -27,7 +32,7 @@ jobs:
           ldflags: -s -w
           buildmode: default
         env:
-          GOPATH: ~/go          
+          GOPATH: ${{ github.workspace }}          
       - name: Create Release
         uses: actions/create-release@v1.0.0
         id: create_release
