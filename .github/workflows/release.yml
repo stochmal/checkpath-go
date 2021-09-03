@@ -11,6 +11,9 @@ jobs:
       matrix:
         go_version: [1.17.x]
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash    
     steps:
       - name: Checkout
         uses: actions/checkout@v2
