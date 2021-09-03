@@ -9,7 +9,7 @@ jobs:
   release:
     strategy:
       matrix:
-        go_version: [1.13.x]
+        go_version: [1.17.x]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,7 +25,9 @@ jobs:
           v: true
           x: true
           ldflags: -s -w
-          buildmode: default          
+          buildmode: default
+        env:
+          GOPATH: ~/go          
       - name: Create Release
         uses: actions/create-release@v1.0.0
         id: create_release
