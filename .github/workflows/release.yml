@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Copy source to src folder
+      - name: Copy source to src
         run: |
           pwd
           ls -al
@@ -45,7 +45,7 @@ jobs:
           gh --version
           version="$(basename $GITHUB_REF)"
           echo $version
-          gh release upload $version /build
+          gh release upload $version build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
