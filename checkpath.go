@@ -18,10 +18,13 @@ func main() {
 
 	fmt.Printf("os name is %s-%s use separator %s\n", runtime.GOOS, runtime.GOARCH, separator)
 
+	var path = os.Getenv("PATH")
+	fmt.Printf("\nPATH len is %d (4095 max allowed)\n", len(path))
+
 	fmt.Println("\n*** folders that can be removed from PATH")
 	fmt.Println()
 
-	folders := strings.Split(os.Getenv("PATH"), separator)
+	folders := strings.Split(path, separator)
 	sort.Strings(folders)
 
 	for _, folder := range folders {
