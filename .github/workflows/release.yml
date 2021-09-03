@@ -45,7 +45,7 @@ jobs:
           gh --version
           version="$(basename $GITHUB_REF)"
           echo $version
-          gh release upload $version build
+          gh release upload $version build/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
