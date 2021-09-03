@@ -18,7 +18,10 @@ jobs:
         run: |
           pwd
           ls -al
+          echo '${{ github.workspace }}'
           ls ${{ github.workspace }}
+          mkdir src
+          copy checkpath.go src
       - name: Build with xgo
         uses: crazy-max/ghaction-xgo@v1
         with:
