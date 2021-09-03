@@ -43,7 +43,7 @@ jobs:
       - name: Upload using GitHub cli
         run: |
           gh --version
-          gh auth login --with-token $GITHUB_TOKEN
+          gh auth login
           version="$(basename $GITHUB_REF)"
           echo $version
           gh release upload $version /build
