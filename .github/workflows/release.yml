@@ -48,7 +48,9 @@ jobs:
           #sudo apt install gh
           gh --version
           gh auth login --with-token $env:GITHUB_TOKEN
-          gh release upload "$(basename $GITHUB_REF)" /build/*
+          version="$(basename $GITHUB_REF)"
+          echo $version
+          gh release upload $version /build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
