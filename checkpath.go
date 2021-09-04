@@ -9,6 +9,9 @@ import (
 	"strings"
 )
 
+const COPYRIGHT = "Copyright (C) 2021 Tomasz Stochmal <stochmal@gmail.com>"
+const LICENSE = "https://github.com/stochmal/checkpath-go/blob/main/LICENSE"
+
 func main() {
 
 	var separator = ":"
@@ -16,7 +19,10 @@ func main() {
 		separator = ";"
 	}
 
-	fmt.Printf("os name is %s-%s use separator %s\n", runtime.GOOS, runtime.GOARCH, separator)
+	fmt.Println(COPYRIGHT)
+	fmt.Println(LICENSE)
+
+	fmt.Printf("\nos name is %s-%s use separator %s\n", runtime.GOOS, runtime.GOARCH, separator)
 
 	var path = os.Getenv("PATH")
 	fmt.Printf("\nPATH len is %d (4095 max allowed)\n", len(path))
