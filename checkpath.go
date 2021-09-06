@@ -35,25 +35,27 @@ func main() {
 	folders := strings.Split(path, separator)
 	sort.Strings(folders)
 
+	var last_folder = ""
 	for _, folder := range folders {
 
 		exist, _ := exists(folder)
 
 		if !exist {
 			fmt.Printf("%-25s %s\n", "*** FOLDER NOT FOUND", folder)
+		} else if last_folder == folder {
+			fmt.Printf("%-25s %s\n", "*** DUPLICATE", folder)
 		} else {
 			files, _ := ioutil.ReadDir(folder)
 
 			if len(files) == 0 {
 				fmt.Printf("%-25s %s\n", "*** FOLDER IS EMPTY", folder)
 			} else {
-
 				fmt.Printf("%9d files found %3s %s\n", len(files), "", folder)
 			}
 		}
+
+		last_folder = folder
 	}
-	//	fmt.Println("press [Enter] to exit")
-	//	fmt.Scanln()
 }
 
 // exists returns whether the given file or directory exists
