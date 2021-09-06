@@ -25,12 +25,12 @@ jobs:
           ls ${{ github.workspace }}
           go version
           printenv | sort
-          md build && cd build
+          mkdir build && cd build
           docker pull karalabe/xgo-latest
+          echo '------------------------'
           go get github.com/karalabe/xgo
           xgo -v -x -ldflags='-s -w' github.com/stochmal/checkpath-go
-          cd ..
-          ls -al build
+          cd .. && ls -al build
       - name: Upload using GitHub cli
         run: |
           gh --version
