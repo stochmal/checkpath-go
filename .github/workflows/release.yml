@@ -17,31 +17,20 @@ jobs:
     steps:
       #- name: Checkout
       #  uses: actions/checkout@v2
-      - name: Prepare for xgo
+      - name: Build with xgo
         run: |
           pwd
           ls -al
           echo '${{ github.workspace }}'
           ls ${{ github.workspace }}
-          #mkdir src
-          #cp checkpath.go src
+          go version
           printenv | sort
-          #fix for xgo build
-          #printf "module checkpath\n\ngo 1.17\n" >go.mod
-      - name: Build with xgo
-        uses: crazy-max/ghaction-xgo@v1
-        with:
-          xgo_version: latest
-          go_version: ${{ matrix.go_version }}
-          dest: build
-          prefix: checkpath
-          targets: windows/386,windows/amd64,linux/386,linux/amd64,darwin/386,darwin/amd64
-          v: true
-          x: true
-          ldflags: -s -w
-          buildmode: default
-        env:
-          GOPATH: ${{ github.workspace }}          
+          md build && cd build
+          docker pull karalabe/xgo-latest
+          go get github.com/karalabe/xgo
+          xgo -v -x -ldflags='-s -w' github.com/stochmal/checkpath-go
+          cd ..
+          ls -al build
       - name: Upload using GitHub cli
         run: |
           gh --version
