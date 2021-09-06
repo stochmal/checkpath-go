@@ -31,7 +31,7 @@ jobs:
           echo '------------------------'
           go get github.com/karalabe/xgo
           ls -al ~/go/bin/
-          ~/go/bin/xgo -v -x -ldflags='-s -w' github.com/stochmal/checkpath-go
+          ~/go/bin/xgo -v -x -ldflags='-s -w' --targets='windows/386,windows/amd64,linux/386,linux/amd64,darwin/386,darwin/amd64' github.com/stochmal/checkpath-go
           cd .. && ls -al build
       - name: Upload using GitHub cli
         run: |
