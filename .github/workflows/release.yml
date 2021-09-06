@@ -29,7 +29,8 @@ jobs:
           docker pull karalabe/xgo-latest
           echo '------------------------'
           go get github.com/karalabe/xgo
-          xgo -v -x -ldflags='-s -w' github.com/stochmal/checkpath-go
+          ls -al ~/go/bin/
+          ~/go/bin/xgo -v -x -ldflags='-s -w' github.com/stochmal/checkpath-go
           cd .. && ls -al build
       - name: Upload using GitHub cli
         run: |
