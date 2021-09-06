@@ -26,6 +26,8 @@ jobs:
           mkdir src
           cp checkpath.go src
           printenv | sort
+          #fix for xgo build
+          rm go.mod
       - name: Build with xgo
         uses: crazy-max/ghaction-xgo@v1
         with:
