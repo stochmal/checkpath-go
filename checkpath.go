@@ -1,3 +1,4 @@
+// package main is entry point for console application
 package main
 
 import (
@@ -9,9 +10,10 @@ import (
 	"strings"
 )
 
-const COPYRIGHT = "Copyright (C) 2021 Tomasz Stochmal <stochmal@gmail.com>"
-const LICENSE = "https://github.com/stochmal/checkpath-go/blob/main/LICENSE"
+const copyright = "Copyright (C) 2021 Tomasz Stochmal <stochmal@gmail.com>"
+const license = "https://github.com/stochmal/checkpath-go/blob/main/LICENSE"
 
+// main contains application logic
 func main() {
 
 	var separator = ":"
@@ -19,8 +21,8 @@ func main() {
 		separator = ";"
 	}
 
-	fmt.Println(COPYRIGHT)
-	fmt.Println(LICENSE)
+	fmt.Println(copyright)
+	fmt.Println(license)
 
 	fmt.Printf("\nos name is %s-%s use separator %s\n", runtime.GOOS, runtime.GOARCH, separator)
 
