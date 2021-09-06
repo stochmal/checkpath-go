@@ -15,8 +15,6 @@ jobs:
       run:
         shell: bash    
     steps:
-      #- name: Checkout
-      #  uses: actions/checkout@v2
       - name: Build with xgo
         run: |
           pwd
@@ -32,8 +30,11 @@ jobs:
           ls -al ~/go/bin/
           ~/go/bin/xgo -v -x -ldflags='-s -w' github.com/stochmal/checkpath-go
           cd .. && ls -al build
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Upload using GitHub cli
         run: |
+          ls -al build
           gh --version
           version="$(basename $GITHUB_REF)"
           echo $version
