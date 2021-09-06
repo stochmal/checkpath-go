@@ -5,3 +5,6 @@ If you reach this limit then you will be not able to execute command line apps t
 Use this tool to see what entries you can remove like **FOLDER NOT FOUND**, **FOLDER IS EMPTY** or **duplicate** folder.
 
 ```go install github.com/stochmal/checkpath-go@latest```
+
+[![Go Reference](https://pkg.go.dev/badge/github.com/stochmal/checkpath-go.svg)](https://pkg.go.dev/github.com/stochmal/checkpath-go)
+
