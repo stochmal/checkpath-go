@@ -32,6 +32,8 @@ jobs:
           cd .. && ls -al build
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          clean: 'false'
       - name: Upload using GitHub cli
         run: |
           ls -al build
