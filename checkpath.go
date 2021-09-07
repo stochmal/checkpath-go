@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 	"runtime"
 	"sort"
-	"strings"
 )
 
 const copyright = "Copyright (C) 2021 Tomasz Stochmal <stochmal@gmail.com>"
@@ -16,15 +16,10 @@ const license = "https://github.com/stochmal/checkpath-go/blob/main/LICENSE"
 // main contains application logic
 func main() {
 
-	var separator = ":"
-	if runtime.GOOS == "windows" {
-		separator = ";"
-	}
-
 	fmt.Println(copyright)
 	fmt.Println(license)
 
-	fmt.Printf("\nos name is %s-%s use separator %s\n", runtime.GOOS, runtime.GOARCH, separator)
+	fmt.Printf("\nos name is %s-%s\n", runtime.GOOS, runtime.GOARCH)
 
 	var path = os.Getenv("PATH")
 	fmt.Printf("\nPATH len is %d (4095 max allowed)\n", len(path))
@@ -32,7 +27,8 @@ func main() {
 	fmt.Println("\n*** folders that can be removed from PATH")
 	fmt.Println()
 
-	folders := strings.Split(path, separator)
+	folders := filepath.SplitList(path)
+
 	sort.Strings(folders)
 
 	var last_folder = ""
