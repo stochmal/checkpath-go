@@ -21,7 +21,7 @@ jobs:
           clean: true
       - name: Run tests
         run: |
-          go test -v
+          go test -v -cover
       - name: Build with xgo
         run: |
           pwd
