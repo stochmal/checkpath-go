@@ -18,7 +18,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          clean: true    
+          clean: true
+      - name: Run tests
+        run: |
+          go test
       - name: Build with xgo
         run: |
           pwd
