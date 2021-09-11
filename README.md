@@ -12,5 +12,5 @@ Use this tool to see what entries you can remove like **FOLDER NOT FOUND**, **FO
 &nbsp;
 <a href="https://goreportcard.com/report/github.com/stochmal/checkpath-go" target="_blank"><img src="https://img.shields.io/badge/Go_report-A+-success?style=for-the-badge&logo=none" alt="go report" /></a>
 &nbsp;
-<img src="https://img.shields.io/badge/license-apache_3.0-red?style=for-the-badge&logo=none" alt="license" /> 
+<img src="https://img.shields.io/badge/license-gpl_3.0-red?style=for-the-badge&logo=none" alt="license" /> 
 </p>
