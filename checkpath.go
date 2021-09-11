@@ -31,14 +31,14 @@ func main() {
 
 	sort.Strings(folders)
 
-	var last_folder = ""
+	var lastFolder = ""
 	for _, folder := range folders {
 
 		exist, _ := exists(folder)
 
 		if !exist {
 			fmt.Printf("%-25s %s\n", "*** FOLDER NOT FOUND", folder)
-		} else if last_folder == folder {
+		} else if lastFolder == folder {
 			fmt.Printf("%-25s %s\n", "*** DUPLICATE", folder)
 		} else {
 			files, _ := ioutil.ReadDir(folder)
@@ -50,7 +50,7 @@ func main() {
 			}
 		}
 
-		last_folder = folder
+		lastFolder = folder
 	}
 }
 
