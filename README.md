@@ -4,7 +4,10 @@ If you reach this limit then you will be not able to execute command line apps t
 
 Use this tool to see what entries you can remove like **FOLDER NOT FOUND**, **FOLDER IS EMPTY** or **DUPLICATE** folder.
 
-```go install github.com/stochmal/checkpath-go@latest```
+```
+go install github.com/stochmal/checkpath-go@latest
+checkpath-go
+```
 
 [YouTube tutorial](https://youtu.be/vPwXrgNJZNM)
 
