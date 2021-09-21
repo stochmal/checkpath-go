@@ -6,6 +6,8 @@ Use this tool to see what entries you can remove like **FOLDER NOT FOUND**, **FO
 
 ```go install github.com/stochmal/checkpath-go@latest```
 
+[YouTube tutorial](https://youtu.be/vPwXrgNJZNM)
+
 <p align="left">  
 <br/>
 <a href="https://pkg.go.dev/github.com/stochmal/checkpath-go?tab=doc" target="_blank"><img src="https://img.shields.io/badge/Go-1.17+-00ADD8?style=for-the-badge&logo=go" alt="go version" /></a>  
